@@ -35,4 +35,8 @@ router.post('/how-many-apprentices', (req, res, next) => {
 	res.redirect('recruitment-required')
 })
 
+router.post('/recruitment-required', (req, res, next) => {
+	res.redirect('start-date')
+})
+
 module.exports = router
