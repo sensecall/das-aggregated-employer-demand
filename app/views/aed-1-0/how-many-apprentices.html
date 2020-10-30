@@ -12,6 +12,11 @@ GOV.UK Prototype Kit
 },
 html: 'This service is being used for research only.'
 }) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "#"
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -23,7 +28,7 @@ html: 'This service is being used for research only.'
 				label:
 				{
 					text: "How many apprentices will be doing this training?",
-					classes: "govuk-label--l",
+					classes: "govuk-label--xl",
 					isPageHeading: true
 				},
 				classes: "govuk-input--width-4",

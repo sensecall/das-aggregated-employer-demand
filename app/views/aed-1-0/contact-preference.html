@@ -12,6 +12,11 @@ GOV.UK Prototype Kit
 },
 html: 'This service is being used for research only.'
 }) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "#"
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -28,7 +33,7 @@ html: 'This service is being used for research only.'
 					{
 						text: "How do you want to hear about suitable training opportunities?",
 						isPageHeading: true,
-						classes: "govuk-fieldset__legend--l"
+						classes: "govuk-fieldset__legend--xl"
 					}
 				},
 				hint: 
