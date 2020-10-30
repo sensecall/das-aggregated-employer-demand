@@ -19,14 +19,14 @@ html: 'This service is being used for research only.'
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		<form method="post">
-			{{ govukRadios({
+			{{ govukCheckboxes({
 				idPrefix: "changed-name",
 				name: "changed-name",
 				fieldset: 
 				{
 					legend: 
 					{
-						text: "Does the training need to be delivered at a particular location?",
+						text: "How can providers contact you?",
 						isPageHeading: true,
 						classes: "govuk-fieldset__legend--l"
 					}
@@ -38,11 +38,11 @@ html: 'This service is being used for research only.'
 				items: [
 				{
 					value: "yes",
-					text: "Training should be delivered at our business address"
+					text: "Phone"
 				},
 				{
 					value: "no",
-					text: "I have no preference"
+					text: "Email"
 				}
 				]
 			}) }}

@@ -39,4 +39,20 @@ router.post('/recruitment-required', (req, res, next) => {
 	res.redirect('start-date')
 })
 
+router.post('/start-date', (req, res, next) => {
+	res.redirect('training-location')
+})
+
+router.post('/training-location', (req, res, next) => {
+	res.redirect('contact-preference')
+})
+
+router.post('/contact-preference', (req, res, next) => {
+	res.redirect('provider-contact')
+})
+
+router.post('/provider-contact', (req, res, next) => {
+	res.redirect('check-your-answers')
+})
+
 module.exports = router
