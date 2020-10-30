@@ -2,43 +2,32 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        The GOV.UK Prototype Kit
-        <span class="govuk-caption-xl">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      {{serviceName}}
+    </h1>
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
+    <p class="govuk-body-l govuk-!-margin-bottom-8">
+      Allow employers to register their interest in training with a provider so providers can meet minimum cohort sizes.
+    </p>
 
-      <h2 class="govuk-heading-m">About this page</h2>
+    <h2 class="govuk-heading-l govuk-!-margin-top-8 govuk-!-margin-bottom-3">
+      Initial concepts
+    </h2>
 
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
-
-      <h2 class="govuk-heading-m">Examples and documentation</h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a href="/docs/tutorials-and-examples">Example pages and documentation</a>
-        </li>
-        <li>
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-        </li>
-      </ul>
-    </div>
+    <h3 class="govuk-heading-m">
+      <a href="aed-1-0">Version 1-0</a>
+      <span class="govuk-caption-m">30 October 2020</span>
+    </h3>
+    <p>
+      First sketches.
+    </p>
   </div>
 
-{% endblock %}
+  {% endblock %}
