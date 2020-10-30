@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+	tag: {
+	text: "experimental"
+},
+html: 'This service is being used for research only.'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+			Find a training provider to deliver your apprenticeship
+		</h1>
+
+		<p class="govuk-body-l">
+			This service is for employers who are not able to find suitable apprenticeship training provision.
+		</p>
+
+		<p>
+			You can register your interest in apprenticeship training so providers can arrange training with you.
+		</p>
+
+		<h2 class="govuk-heading-m">
+			Before you start
+		</h2>
+
+		<ul class="govuk-list govuk-list--bullet">
+			<li></li>
+			<li></li>
+		</ul>
+
+		<p>
+			{{govukButton({
+				text: "Start now",
+				href: "contacted-provider",
+				isStartButton: true
+			})}}
+		</p>
+	</div>
+</div>
+{% endblock %}
