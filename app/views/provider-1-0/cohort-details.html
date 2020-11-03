@@ -1,0 +1,113 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName = 'Employer request' %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+	tag:
+	{
+		text: "experimental"
+	},
+	html: 'This service is being used for research only.'
+}) }}
+
+{{ govukBackLink({
+	text: "Back",
+	href: "#"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+			Cohort details
+		</h1>
+
+		<div class="govuk-inset-text">
+			<p>
+				Standard: Butcher, Level: 3
+			</p>
+			<p>
+				Start date: January 2021
+			</p>
+		</div>
+
+		{{ govukTable({
+			classes: "govuk-margin-bottom-6",
+			firstCellIsHeader: false,
+			head: [
+			{
+				text: "Employer name"
+			},
+			{
+				text: "Location"
+			},
+			{
+				text: "Apprentices"
+			},
+			{
+				text: "Levy status"
+			},
+			{
+				text: ""
+			}
+			],
+			rows: [
+			[
+			{
+				text: "Employer 1"
+			},
+			{
+				text: "Leamington Spa"
+			},
+			{
+				text: "3"
+			},
+			{
+				text: "Non-levy"
+			}
+			],
+			[
+			{
+				text: "Employer 2"
+			},
+			{
+				text: "Coventry"
+			},
+			{
+				text: "1"
+			},
+			{
+				text: "Transfer"
+			}
+			],
+			[
+			{
+				text: "Employer 3"
+			},
+			{
+				text: "Coventry"
+			},
+			{
+				text: "2"
+			},
+			{
+				text: "Levy"
+			}
+			]
+			]
+		}) }}
+
+		{{govukButton({
+			text: "Request details"
+		})}}
+	</div>
+</div>
+{% endblock %}

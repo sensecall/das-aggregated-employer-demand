@@ -1,0 +1,89 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName = 'Employer request' %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+	tag:
+	{
+		text: "experimental"
+	},
+	html: 'This service is being used for research only.'
+}) }}
+
+{{ govukBackLink({
+	text: "Back",
+	href: "#"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{{ govukTable({
+			caption: "Employer requests",
+			captionClasses: "govuk-heading-xl govuk-!-margin-bottom-6",
+			firstCellIsHeader: false,
+			head: [
+			{
+				text: "Apprenticeship standard"
+			},
+			{
+				text: "Start month"
+			},
+			{
+				text: "Employers"
+			},
+			{
+				text: "Apprentices"
+			},
+			{
+				text: ""
+			}
+			],
+			rows: [
+			[
+			{
+				text: "Butcher, Level: 3"
+			},
+			{
+				text: "January 2021"
+			},
+			{
+				text: "43"
+			},
+			{
+				text: "9"
+			},
+			{
+				html: '<a href="cohort-details">View details</a>'
+			}
+			],
+			[
+			{
+				text: "Butcher, Level: 3"
+			},
+			{
+				text: "ASAP"
+			},
+			{
+				text: "12"
+			},
+			{
+				text: "6"
+			},
+			{
+				html: '<a href="cohort-details">View details</a>'
+			}
+			]
+			]
+		}) }}
+	</div>
+</div>
+{% endblock %}
