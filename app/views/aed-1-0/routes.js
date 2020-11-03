@@ -55,4 +55,8 @@ router.post('/provider-contact', (req, res, next) => {
 	res.redirect('check-your-answers')
 })
 
+router.post('/check-your-answers', (req, res, next) => {
+	res.redirect('confirmation-page')
+})
+
 module.exports = router

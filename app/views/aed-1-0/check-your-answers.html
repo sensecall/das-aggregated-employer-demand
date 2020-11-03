@@ -14,8 +14,8 @@ html: 'This service is being used for research only.'
 }) }}
 
 {{ govukBackLink({
-  text: "Back",
-  href: "#"
+	text: "Back",
+	href: "#"
 }) }}
 {% endblock %}
 
@@ -27,12 +27,13 @@ html: 'This service is being used for research only.'
 			Check your answers
 		</h1>
 
-		<p>
-			{{govukButton({
-				text: "Submit",
-				href: "#"
-			})}}
-		</p>
+		<form method="post">
+			<p>
+				{{govukButton({
+					text: "Submit"
+				})}}
+			</p>
+		</form>
 	</div>
 </div>
 {% endblock %}

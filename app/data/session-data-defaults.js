@@ -20,5 +20,15 @@ Example usage:
 module.exports = {
 
   // Insert values here
-
+  'employer':
+  {
+  	'name': 'ABC Ltd'
+  },
+  'request':
+  {
+  	'standard':
+  	{
+  		'name': 'Butcher, Level: 2'
+  	}
+  }
 }
