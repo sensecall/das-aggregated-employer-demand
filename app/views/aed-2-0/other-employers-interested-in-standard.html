@@ -1,0 +1,91 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+	tag: {
+	text: "experimental"
+},
+html: 'This service is being used for research only.'
+}) }}
+
+{{ govukBackLink({
+	text: "Back",
+	href: "#"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		{{ govukRadios({
+			idPrefix: "where-do-you-live",
+			name: "where-do-you-live",
+			fieldset:
+			{
+				legend:
+				{
+					text: "There are 4 cohorts available to join for [STANDARD] near [POSTCODE]",
+					isPageHeading: true,
+					classes: "govuk-fieldset__legend--l"
+				}
+			},
+			items: [
+			{
+				value: "england",
+				text: "As soon as provision becomes available",
+				conditional:
+				{
+					html: "<p>4 employers<br>
+					8 apprentices</p>"
+				}
+			},
+			{
+				value: "scotland",
+				text: "December 2020",
+				conditional:
+				{
+					html: "<p>4 employers<br>
+					8 apprentices</p>"
+				}
+			},
+			{
+				value: "wales",
+				text: "February 2021",
+				conditional:
+				{
+					html: "<p>4 employers<br>
+					8 apprentices</p>"
+				}
+			},
+			{
+				value: "northern-ireland",
+				text: "April 2021",
+				conditional:
+				{
+					html: "<p>4 employers<br>
+					8 apprentices</p>"
+				}
+			}
+			]
+		}) }}
+
+		<form method="post">
+			<p>
+				{{govukButton({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+
+		<p>
+			You can <a href="organisation-name">start a new cohort</a> if none of these are suitable.
+		</p>
+	</div>
+</div>
+{% endblock %}

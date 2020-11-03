@@ -1,0 +1,80 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+	tag: {
+	text: "experimental"
+},
+html: 'This service is being used for research only.'
+}) }}
+
+{{ govukBackLink({
+	text: "Back",
+	href: "#"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form method="post">
+			{% set postcodeHtml %}
+			{{ govukInput({
+				label:
+				{
+					text: "Enter postcode",
+					classes: "govuk-label--s",
+					isPageHeading: false
+				},
+				id: "event-name",
+				name: "event-name"
+			}) }}
+			{% endset %}
+
+			{{ govukRadios({
+				idPrefix: "changed-name",
+				name: "changed-name",
+				fieldset: 
+				{
+					legend: 
+					{
+						text: "Where does the training need to be delivered?",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--xl"
+					}
+				},
+				hint: 
+				{
+					text: ""
+				},
+				items: [
+				{
+					value: "yes",
+					text: "At a specific location",
+					conditional:
+					{
+						html: postcodeHtml
+					}
+				},
+				{
+					value: "no",
+					text: "I have no preference"
+				}
+				]
+			}) }}
+
+			<p>
+				{{govukButton({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+{% endblock %}
