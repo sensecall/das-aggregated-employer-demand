@@ -13,11 +13,11 @@ GOV.UK Prototype Kit
 html: 'This service is being used for research only.'
 }) }}
 
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
 {% endblock %}
 
 {% block content %}
@@ -29,9 +29,13 @@ html: 'This service is being used for research only.'
 		</h1>
 
 		<div class="govuk-inset-text">
-			<h2 class="govuk-heading-s govuk-!-margin-bottom-1">
-				Apprenticeship training course:
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-4">
+				Cohort details
 			</h2>
+
+			<h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+				Apprenticeship training course:
+			</h3>
 			<p>
 				Butcher, Level: 3
 			</p>
@@ -127,9 +131,13 @@ html: 'This service is being used for research only.'
 		{{ govukInput({
 			label:
 			{
-				text: "Apprentices required for training to begin",
+				text: "Total apprentices required",
 				classes: "govuk-label--m",
 				isPageHeading: true
+			},
+			hint:
+			{
+				text: "The minimum number of apprentices required in this cohort, from all employers, for the training to go ahead."
 			},
 			id: "event-name",
 			name: "event-name",
