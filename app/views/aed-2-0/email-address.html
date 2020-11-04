@@ -13,11 +13,11 @@ GOV.UK Prototype Kit
 html: 'This service is being used for research only.'
 }) }}
 
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
 {% endblock %}
 
 {% block content %}
@@ -34,11 +34,15 @@ html: 'This service is being used for research only.'
 				},
 				hint:
 				{
-					text: "Enter email"
+					text: "Enter email address"
 				},
 				id: "event-name",
 				name: "event-name"
 			}) }}
+
+			<p class="govuk-inset-text">
+				We'll send a notification when a training provider tells us that they can deliver your training.
+			</p>
 
 			<p>
 				{{govukButton({
