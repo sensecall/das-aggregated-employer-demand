@@ -11,4 +11,12 @@ router.post('/contacted-provider', (req, res, next) => {
 	res.redirect('provider-details')
 })
 
+router.post('/cohort-requirements', (req, res, next) => {
+	res.redirect('check-your-answers')
+})
+
+router.post('/check-your-answers', (req, res, next) => {
+	res.redirect('confirmation-page')
+})
+
 module.exports = router

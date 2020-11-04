@@ -28,24 +28,31 @@ html: 'This service is being used for research only.'
 			Let employers know the requirements for this cohort
 		</h1>
 
-		<div class="govuk-inset-text">
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-4">
-				Cohort details
-			</h2>
-
-			<h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-				Apprenticeship training course:
-			</h3>
-			<p>
-				Butcher, Level: 3
-			</p>
-			<h2 class="govuk-heading-s govuk-!-margin-bottom-1">
-				Cohort start date:
-			</h2>
-			<p>
-				January 2021
-			</p>
-		</div>
+		{{ govukSummaryList({
+			classes: "govuk-!-margin-bottom-8",
+			rows: [
+			{
+				key: 
+				{
+					text: "Apprenticeship training course"
+				},
+				value: 
+				{
+					text: "Butcher, Level: 3"
+				}
+			},
+			{
+				key: 
+				{
+					text: "Cohort start date"
+				},
+				value:
+				{
+					text: "January 2021"
+				}
+			}
+			]
+		}) }}
 
 		{{ govukCheckboxes({
 			idPrefix: "waste",
