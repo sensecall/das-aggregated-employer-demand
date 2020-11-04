@@ -13,10 +13,11 @@ GOV.UK Prototype Kit
 html: 'This service is being used for research only.'
 }) }}
 
-{{ govukBackLink({
-	text: "Back",
-	href: "#"
-}) }}
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
 {% endblock %}
 
 {% block content %}
@@ -24,8 +25,12 @@ html: 'This service is being used for research only.'
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		{{ govukRadios({
-			idPrefix: "where-do-you-live",
-			name: "where-do-you-live",
+			idPrefix: "chosen-cohort",
+			name: "chosen-cohort",
+			hint:
+			{
+				html: 'Choose a cohort, or <a href="organisation-name?chosen-cohort=new">start a new cohort</a> if none are suitable.'
+			},
 			fieldset:
 			{
 				legend:
@@ -37,39 +42,39 @@ html: 'This service is being used for research only.'
 			},
 			items: [
 			{
-				value: "england",
-				text: "Cohort starting as soon as provision becomes available",
-				conditional:
-				{
-					html: "<p>4 employers<br>
-					8 apprentices</p>"
-				}
-			},
-			{
-				value: "scotland",
+				value: "cohort-2",
 				text: "Starting December 2020",
 				conditional:
 				{
-					html: "<p>4 employers<br>
-					8 apprentices</p>"
+					html: "<p>7 employers<br>
+					13 apprentices</p>"
 				}
 			},
 			{
-				value: "wales",
+				value: "cohort-3",
 				text: "Starting February 2021",
 				conditional:
 				{
 					html: "<p>4 employers<br>
-					8 apprentices</p>"
+					5 apprentices</p>"
 				}
 			},
 			{
-				value: "northern-ireland",
+				value: "cohort-4",
 				text: "Starting April 2021",
 				conditional:
 				{
-					html: "<p>4 employers<br>
-					8 apprentices</p>"
+					html: "<p>2 employers<br>
+					2 apprentices</p>"
+				}
+			},
+			{
+				value: "cohort-1",
+				text: "Starting as soon as provision becomes available",
+				conditional:
+				{
+					html: "<p>6 employers<br>
+					12 apprentices</p>"
 				}
 			}
 			]
@@ -83,9 +88,9 @@ html: 'This service is being used for research only.'
 			</p>
 		</form>
 
-		<p>
+		<!-- <p>
 			You can <a href="organisation-name">start a new cohort</a> if none of these are suitable.
-		</p>
+		</p> -->
 	</div>
 </div>
 {% endblock %}

@@ -16,10 +16,11 @@ GOV.UK Prototype Kit
 	html: 'This service is being used for research only.'
 }) }}
 
-{{ govukBackLink({
-	text: "Back",
-	href: "#"
-}) }}
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
 {% endblock %}
 
 {% block content %}

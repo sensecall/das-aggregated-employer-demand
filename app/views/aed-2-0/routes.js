@@ -12,11 +12,11 @@ router.post('/standard-details', (req, res, next) => {
 })
 
 router.post('/training-location', (req, res, next) => {
-	res.redirect('other-employers-interested-in-standard')
+	res.redirect('available-cohorts')
 })
 
-router.post('/other-employers-interested-in-standard', (req, res, next) => {
-	if(req.session.data['standard-cohorts'] == 0) {
+router.post('/available-cohorts', (req, res, next) => {
+	if(req.session.data['cohort-check-variable']) {
 		res.redirect('related-standards')
 	} else {
 		res.redirect('organisation-name')
@@ -36,7 +36,11 @@ router.post('/how-many-apprentices', (req, res, next) => {
 })
 
 router.post('/recruitment-required', (req, res, next) => {
-	res.redirect('start-date')
+	if(req.session.data['chosen-cohort'] == 'new') {
+		res.redirect('start-date')
+	} else {
+		res.redirect('contact-preference')
+	}
 })
 
 router.post('/start-date', (req, res, next) => {

@@ -16,10 +16,11 @@ GOV.UK Prototype Kit
 	html: 'This service is being used for research only.'
 }) }}
 
-{{ govukBackLink({
-	text: "Back",
-	href: "#"
-}) }}
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
 {% endblock %}
 
 {% block content %}
@@ -31,12 +32,31 @@ GOV.UK Prototype Kit
 		</h1>
 
 		<div class="govuk-inset-text">
-			<p>
-				Standard: Butcher, Level: 3
-			</p>
-			<p>
-				Start date: January 2021
-			</p>
+			{{ govukSummaryList({
+				classes: 'govuk-summary-list--no-border',
+				rows: [
+				{
+					key:
+					{
+						text: "Apprenticeship training course"
+					},
+					value:
+					{
+						text: "Butcher, Level: 3"
+					}
+				},
+				{
+					key:
+					{
+						text: "Cohort start date"
+					},
+					value:
+					{
+						text: "January 2021"
+					}
+				}
+				]
+			}) }}
 		</div>
 
 		{{ govukTable({
@@ -106,7 +126,8 @@ GOV.UK Prototype Kit
 		}) }}
 
 		{{govukButton({
-			text: "Request details"
+			text: "Request details",
+			href: "cohort-requirements"
 		})}}
 	</div>
 </div>
