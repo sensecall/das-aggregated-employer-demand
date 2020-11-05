@@ -25,55 +25,64 @@ html: 'This service is being used for research only.'
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		<form method="post">
-			{% set postcodeHtml %}
-			{{ govukInput({
-				classes: "govuk-input--width-10",
+			{% set otherHtml %}
+			{{ govukTextarea({
+				name: "withdrawal-request[reason][other]",
+				id: "comment",
+				rows: "8",
 				label:
 				{
-					text: "Enter postcode",
+					text: "Enter the reason",
 					classes: "govuk-label--s",
-					isPageHeading: false
+					isPageHeading: true
 				},
-				id: "postcode",
-				name: "request[postcode]",
 				hint:
 				{
-					text: "We'll use this to find other cohorts nearby."
+					text: ""
 				}
 			}) }}
 			{% endset %}
 
+			{% call govukFieldset({
+				legend:
+				{
+					text: "Why was the training provider not able to meet your training needs?",
+					isPageHeading: true,
+					classes: "govuk-fieldset__legend--xl"
+				}
+			}) %}
+
 			{{ govukRadios({
-				idPrefix: "postcode",
-				name: "request[location-preference]",
-				fieldset: 
-				{
-					legend: 
-					{
-						text: "Where does the training need to be delivered?",
-						isPageHeading: true,
-						classes: "govuk-fieldset__legend--xl"
-					}
-				},
-				hint: 
-				{
-					text: ""
-				},
+				idPrefix: "reason",
+				name: "withdrawal-request[reason]",
 				items: [
 				{
-					value: "yes",
-					text: "At a specific location",
-					conditional:
-					{
-						html: postcodeHtml
-					}
+					value: "Reason",
+					text: "Reason"
 				},
 				{
-					value: "no",
-					text: "I have no preference"
+					value: "Reason",
+					text: "Reason"
+				},
+				{
+					value: "Reason",
+					text: "Reason"
+				},
+				{
+					value: "Reason",
+					text: "Reason"
+				},
+				{
+					value: "other",
+					text: "Other",
+					conditional:
+					{
+						html: otherHtml
+					}
 				}
 				]
 			}) }}
+			{% endcall %}
 
 			<p>
 				{{govukButton({

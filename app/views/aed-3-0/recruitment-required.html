@@ -21,36 +21,17 @@ html: 'This service is being used for research only.'
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		<form method="post">
-			{% set postcodeHtml %}
-			{{ govukInput({
-				classes: "govuk-input--width-10",
-				label:
-				{
-					text: "Enter postcode",
-					classes: "govuk-label--s",
-					isPageHeading: false
-				},
-				id: "postcode",
-				name: "request[postcode]",
-				hint:
-				{
-					text: "We'll use this to find other cohorts nearby."
-				}
-			}) }}
-			{% endset %}
-
 			{{ govukRadios({
-				idPrefix: "postcode",
-				name: "request[location-preference]",
+				idPrefix: "changed-name",
+				name: "changed-name",
 				fieldset: 
 				{
 					legend: 
 					{
-						text: "Where does the training need to be delivered?",
+						text: "Do you need to recruit for this role?",
 						isPageHeading: true,
 						classes: "govuk-fieldset__legend--xl"
 					}
@@ -62,15 +43,11 @@ html: 'This service is being used for research only.'
 				items: [
 				{
 					value: "yes",
-					text: "At a specific location",
-					conditional:
-					{
-						html: postcodeHtml
-					}
+					text: "Yes"
 				},
 				{
 					value: "no",
-					text: "I have no preference"
+					text: "No"
 				}
 				]
 			}) }}

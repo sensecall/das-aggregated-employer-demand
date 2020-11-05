@@ -25,32 +25,39 @@ html: 'This service is being used for research only.'
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		<form method="post">
-			{% set postcodeHtml %}
+			{% set phoneHtml %}
 			{{ govukInput({
-				classes: "govuk-input--width-10",
 				label:
 				{
-					text: "Enter postcode",
+					text: "Enter phone number",
 					classes: "govuk-label--s",
 					isPageHeading: false
 				},
-				id: "postcode",
-				name: "request[postcode]",
-				hint:
-				{
-					text: "We'll use this to find other cohorts nearby."
-				}
+				id: "event-name",
+				name: "event-name"
 			}) }}
 			{% endset %}
 
-			{{ govukRadios({
-				idPrefix: "postcode",
-				name: "request[location-preference]",
+			{% set emailHtml %}
+			{{ govukInput({
+				label:
+				{
+					text: "Enter email",
+					classes: "govuk-label--s",
+					isPageHeading: false
+				},
+				id: "event-name",
+				name: "event-name"
+			}) }}
+			{% endset %}
+			{{ govukCheckboxes({
+				idPrefix: "changed-name",
+				name: "changed-name",
 				fieldset: 
 				{
 					legend: 
 					{
-						text: "Where does the training need to be delivered?",
+						text: "How should providers contact you?",
 						isPageHeading: true,
 						classes: "govuk-fieldset__legend--xl"
 					}
@@ -62,15 +69,19 @@ html: 'This service is being used for research only.'
 				items: [
 				{
 					value: "yes",
-					text: "At a specific location",
+					text: "Phone",
 					conditional:
 					{
-						html: postcodeHtml
+						html: phoneHtml
 					}
 				},
 				{
 					value: "no",
-					text: "I have no preference"
+					text: "Email",
+					conditional:
+					{
+						html: emailHtml
+					}
 				}
 				]
 			}) }}

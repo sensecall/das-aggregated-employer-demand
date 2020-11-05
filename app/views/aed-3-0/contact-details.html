@@ -1,0 +1,82 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+	tag: {
+	text: "experimental"
+},
+html: 'This service is being used for research only.'
+}) }}
+
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form method="post">
+			{% call govukFieldset({
+				legend:
+				{
+					text: "Contact details",
+					classes: "govuk-fieldset__legend--xl",
+					isPageHeading: true
+				}
+			}) %}
+
+			{{ govukInput({
+				label:
+				{
+					text: "Organisation name"
+				},
+				id: "full-name",
+				name: "full-name",
+				autocomplete: "name",
+				spellcheck: false
+			}) }}
+
+			{{ govukInput({
+				label:
+				{
+					text: "Full name"
+				},
+				id: "full-name",
+				name: "full-name",
+				autocomplete: "name",
+				spellcheck: false
+			}) }}
+
+			{{ govukInput({
+				label:
+				{
+					text: "Email address"
+				},
+				hint:
+				{
+					text: "We'll use this to send a notification when a training provider tells us that they can deliver your training"
+				},
+				id: "event-name",
+				name: "event-name"
+			}) }}
+
+			{% endcall %}
+
+			<p>
+				{{govukButton({
+					text: "Save and continue"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+{% endblock %}
