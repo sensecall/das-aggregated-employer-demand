@@ -17,18 +17,18 @@ Example usage:
 
 */
 
+const standards = require('./standards.json')
+
 module.exports = {
 
   // Insert values here
-  'employer':
-  {
+  'employer': {
   	'name': 'ABC Ltd'
   },
-  'request':
-  {
-  	'standard':
-  	{
+  'request': {
+  	'standard':	{
   		'name': 'Butcher, Level: 2'
   	}
-  }
+  },
+  'standards': standards
 }
