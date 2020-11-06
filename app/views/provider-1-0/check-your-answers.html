@@ -13,11 +13,11 @@ GOV.UK Prototype Kit
 html: 'This service is being used for research only.'
 }) }}
 
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
 {% endblock %}
 
 {% block content %}
@@ -27,6 +27,102 @@ html: 'This service is being used for research only.'
 		<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
 			Check your answers
 		</h1>
+
+		{{ govukSummaryList({
+			classes: 'govuk-!-margin-bottom-2',
+			rows: [
+			{
+				key:
+				{
+					text: "Standard"
+				},
+				value:
+				{
+					text: "Butcher, Level: 3"
+				}
+			},
+			{
+				key:
+				{
+					text: "Training location"
+				},
+				value:
+				{
+					html: "<p>Day release<br>Block release</p>"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Start date"
+				},
+				value:
+				{
+					text: "January 2021"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Cost"
+				},
+				value:
+				{
+					text: "£4,500"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Total apprentices required"
+				},
+				value:
+				{
+					text: "18"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			}
+			]
+		}) }}
 
 		<form method="post">
 			<p>
