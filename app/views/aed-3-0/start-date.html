@@ -13,11 +13,11 @@ GOV.UK Prototype Kit
 html: 'This service is being used for research only.'
 }) }}
 
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
 {% endblock %}
 
 {% block content %}
@@ -26,21 +26,24 @@ html: 'This service is being used for research only.'
 	<div class="govuk-grid-column-two-thirds">
 		<form method="post">
 			{% set date %}
-			<div class="govuk-date-input" id="end-date">
+			<div id="start-date-hint" class="govuk-hint">
+				For example, 03 2021
+			</div>
+			<div class="govuk-date-input" id="start-date">
 				<div class="govuk-date-input__item">
 					<div class="govuk-form-group">
-						<label class="govuk-label govuk-date-input__label" for="end-date-month">
+						<label class="govuk-label govuk-date-input__label" for="start-date-month">
 							Month
 						</label>
-						<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="end-date-month" name="change-provider[end-date-month]" type="text" pattern="[0-9]*" inputmode="numeric">
+						<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-month" name="change-provider[start-date-month]" type="text" pattern="[0-9]*" inputmode="numeric">
 					</div>
 				</div>
 				<div class="govuk-date-input__item">
 					<div class="govuk-form-group">
-						<label class="govuk-label govuk-date-input__label" for="end-date-year">
+						<label class="govuk-label govuk-date-input__label" for="start-date-year">
 							Year
 						</label>
-						<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="end-date-year" name="change-provider[end-date-year]" type="text" pattern="[0-9]*" inputmode="numeric">
+						<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="start-date-year" name="change-provider[start-date-year]" type="text" pattern="[0-9]*" inputmode="numeric">
 					</div>
 				</div>
 			</div>
