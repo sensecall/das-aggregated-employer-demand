@@ -13,11 +13,11 @@ GOV.UK Prototype Kit
 html: 'This service is being used for research only.'
 }) }}
 
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
 {% endblock %}
 
 {% block content %}
@@ -27,6 +27,132 @@ html: 'This service is being used for research only.'
 		<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
 			Check your answers
 		</h1>
+
+		{{ govukSummaryList({
+			classes: 'govuk-!-margin-bottom-2',
+			rows: [
+			{
+				key:
+				{
+					text: "Apprenticeship training course"
+				},
+				value:
+				{
+					text: "Butcher, Level: 3"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Training location"
+				},
+				value:
+				{
+					text: "No preference"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Number of apprentices"
+				},
+				value:
+				{
+					text: "2"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Start date"
+				},
+				value:
+				{
+					text: "January 2021"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Recruitment"
+				},
+				value:
+				{
+					text: "Not required"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Contact details"
+				},
+				value:
+				{
+					html: "<p>NAME<br>ORG NAME<br>EMAIL</p>"
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			}
+			]
+		}) }}
 
 		<form method="post">
 			<p>
