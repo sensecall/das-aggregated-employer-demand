@@ -31,31 +31,7 @@ GOV.UK Prototype Kit
 			Cohort details
 		</h1>
 
-		{{ govukSummaryList({
-			classes: 'govuk-!-margin-bottom-9',
-			rows: [
-			{
-				key:
-				{
-					text: "Apprenticeship training course"
-				},
-				value:
-				{
-					text: "Butcher, Level: 3"
-				}
-			},
-			{
-				key:
-				{
-					text: "Cohort start date"
-				},
-				value:
-				{
-					text: "January 2021"
-				}
-			}
-			]
-		}) }}
+		{% include './includes/_cohort-details.html' %}
 
 		{{ govukTable({
 			caption: "Employers in this cohort",
