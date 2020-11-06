@@ -71,6 +71,9 @@ html: 'This service is being used for research only.'
 				</legend>
 
 				<div class="govuk-date-input" id="event-name">
+					<div id="start-date-hint" class="govuk-hint">
+						For example, 03 2021
+					</div>
 					<div class="govuk-date-input__item">
 						<div class="govuk-form-group">
 							<label class="govuk-label govuk-date-input__label" for="event-name-month">
@@ -106,6 +109,10 @@ html: 'This service is being used for research only.'
 			prefix:
 			{
 				text: "£"
+			},
+			hint:
+			{
+				text: "The total cost of the apprenticeship training course. Employers who do not pay the apprenticeship levy will pay 5% of this amount."
 			},
 			classes: "govuk-input--width-10",
 			spellcheck: false
