@@ -28,6 +28,24 @@ html: 'This service is being used for research only.'
 			Check your answers
 		</h1>
 
+		{% set trainingLocation %}
+		{% if data['request']['location-preference'] == 'no' %}
+		No preference
+		{% else %}
+		{{data['request']['location']}}
+		{% endif %}
+		{% endset %}
+
+		{% set startDate %}
+		{% if data['request']['start-date-preference'] == 'asap' %}
+		As soon as possible
+		{% elif data['request']['start-date-preference'] == 'dont-know' %}
+		Not sure
+		{% else %}
+		{{ [data['request']['start-date-year'], data['request']['start-date-month'], '01'] | join("-") | formatDate('MMMM YYYY') }}
+		{% endif %}
+		{% endset %}
+
 		{{ govukSummaryList({
 			classes: 'govuk-!-margin-bottom-2',
 			rows: [
@@ -38,7 +56,7 @@ html: 'This service is being used for research only.'
 				},
 				value:
 				{
-					text: "Butcher, Level: 3"
+					text: data['request']['standard']['name']
 				},
 				actions:
 				{
@@ -58,7 +76,7 @@ html: 'This service is being used for research only.'
 				},
 				value:
 				{
-					text: "No preference"
+					text: trainingLocation
 				},
 				actions:
 				{
@@ -78,7 +96,7 @@ html: 'This service is being used for research only.'
 				},
 				value:
 				{
-					text: "2"
+					text: data['request']['apprentices']
 				},
 				actions:
 				{
@@ -98,7 +116,7 @@ html: 'This service is being used for research only.'
 				},
 				value:
 				{
-					text: "January 2021"
+					text: startDate
 				},
 				actions:
 				{
@@ -138,7 +156,7 @@ html: 'This service is being used for research only.'
 				},
 				value:
 				{
-					html: "<p>NAME<br>ORG NAME<br>EMAIL</p>"
+					html: "<p>" + data['request']['organisation-name'] + "<br>" + data['request']['contact-full-name'] + "<br>" + data['request']['email'] + "</p>"
 				},
 				actions:
 				{

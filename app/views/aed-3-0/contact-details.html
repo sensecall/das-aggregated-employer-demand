@@ -34,13 +34,17 @@ html: 'This service is being used for research only.'
 				}
 			}) %}
 
+			<p class="govuk-!-margin-bottom-6">
+				We'll use these details to share details of any providers interested in delivering your apprenticeship training.
+			</p>
+
 			{{ govukInput({
 				label:
 				{
 					text: "Organisation name"
 				},
-				id: "full-name",
-				name: "full-name",
+				id: "organisation-name",
+				name: "request[organisation-name]",
 				autocomplete: "name",
 				spellcheck: false
 			}) }}
@@ -48,10 +52,14 @@ html: 'This service is being used for research only.'
 			{{ govukInput({
 				label:
 				{
-					text: "Full name"
+					text: "Contact full name"
 				},
-				id: "full-name",
-				name: "full-name",
+				hint:
+				{
+					text: "The full name of the person who should be contacted about this apprenticeship"
+				},
+				id: "contact-full-name",
+				name: "request[contact-full-name]",
 				autocomplete: "name",
 				spellcheck: false
 			}) }}
@@ -65,8 +73,8 @@ html: 'This service is being used for research only.'
 				{
 					text: "We'll use this to send a notification when a training provider tells us that they can deliver your training"
 				},
-				id: "event-name",
-				name: "event-name"
+				id: "email",
+				name: "request[email]"
 			}) }}
 
 			{% endcall %}

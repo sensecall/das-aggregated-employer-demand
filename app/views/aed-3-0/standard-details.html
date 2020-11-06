@@ -35,7 +35,8 @@ html: 'This service is being used for research only.'
 				<label class="govuk-label" for="sort">
 					Select standard
 				</label>
-				<select class="govuk-select" id="standard-picker" name="standard">
+				<select class="govuk-select" id="standard-picker" name="request[standard][name]">
+					<option></option>
 					{% for standard in data['standards']['list'] %}
 					<option value="{{standard.title}}, Level: {{standard.level}}">{{standard.title}}, Level: {{standard.level}}</option>
 					{% endfor %}

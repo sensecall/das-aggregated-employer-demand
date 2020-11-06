@@ -22,9 +22,6 @@ html: 'This service is being used for research only.'
 
 {% set _citiesAutocompleteList = data['citiesAutocompleteList'] %}
 {% set _defaultLocationSearchvalue = "" %}
-{% if myData.locationapplied == true %}
-{% set _defaultLocationSearchvalue = myData.location %}
-{% endif %}
 
 {% block content %}
 <!-- {{data['citiesAutocompleteList']}} -->
@@ -34,31 +31,18 @@ html: 'This service is being used for research only.'
 			{% set postcodeHtml %}
 			<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Apprenticeship location</h2>
 
-			{% if myData.locationapplied %}
-
-			<p class="govuk-body govuk-!-margin-bottom-5"><span style="margin-right: 10px">{{myData.location}}</span> <a href="standard?standard={{myData.standard}}&location" class="govuk-link govuk-link--no-visited-state" >Remove&nbsp;location</a></p>
-			<p class="govuk-body fat-availability {% if _displaycountproviders != 0 %}fat-tick-2{% else %}fat-cross-2{% endif %}" >{{_displaycountproviders}} provider{% if _displaycountproviders != 1 %}s{% endif %} available for this apprenticeship location</p>
-
-			{% if _displaycountproviders != 0 %}
-			<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0"><a href="providers?standard={{myData.standard}}" class="govuk-button govuk-link--no-visited-state">View providers for this course</a></p>
-			{% endif %}
-
-			{% else %}
-
 			<div class="govuk-form-group" >
 				<label for="search-location" class="govuk-label" >
-					<span class="govuk-!-font-weight-bol">Enter a town, city or postcode</span>
+					Enter a town, city or postcode
 				</label>
-				<input type="search" value="{% if myData.locationapplied == true %}{{myData.location}}{% endif %}" id="search-location" name="location" title="Search" class="govuk-input govuk-input-background">
+				<input type="search" value="" id="search-location" name="request[location]" title="Search" class="govuk-input govuk-input-background">
 			</div>
 
-			<input type="hidden" value="{{myData.standard}}" name="standard" >
-
-			{% endif %}
+			<input type="hidden" value="{{data['request']['standard']['name']}}" name="standard">
 			{% endset %}
 
 			{{ govukRadios({
-				idPrefix: "postcode",
+				idPrefix: "location",
 				name: "request[location-preference]",
 				fieldset: 
 				{

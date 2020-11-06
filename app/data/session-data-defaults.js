@@ -28,7 +28,10 @@ module.exports = {
   'request': {
   	'standard':	{
   		'name': 'Butcher, Level: 2'
-  	}
-  },
-  'standards': standards
+  	},
+   'organisation-name': 'Biz Co Ltd',
+   'contact-full-name': 'Jay Smith',
+   'email': 'jay.smith@biz-co-ltd.uk.com'
+ },
+ 'standards': standards
 }
