@@ -20,3 +20,25 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 @import "components/filter";
+@import "patterns/das-search-results";
+
+
+//FAT grey panel
+.fat-panel {
+    padding: 15px 15px 1px 15px;
+}
+@media (min-width: 641px){
+    .fat-panel {
+        padding: 20px 20px 1px 20px;
+    }
+}
+.fat-panel-small {
+    padding: 15px 15px 1px 15px;
+}
+
+.fat-panel-blocked {
+    background: govuk-colour("light-grey");
+}
+.fat-panel-bordered {
+    border: 1px solid $govuk-border-colour;
+}
