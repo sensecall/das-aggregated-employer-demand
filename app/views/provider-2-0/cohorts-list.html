@@ -50,7 +50,7 @@ GOV.UK Prototype Kit
 								Standard
 							</label>
 							<select class="govuk-select" id="standard-picker" name="request[standard][name]">
-								<option></option>
+								<option value="all">All standards</option>
 								{% for standard in data['standards']['list'] %}
 								<option value="{{standard.title}}, Level: {{standard.level}}">{{standard.title}}, Level: {{standard.level}}</option>
 								{% endfor %}
@@ -164,7 +164,7 @@ GOV.UK Prototype Kit
 			<ol class="das-search-results__list">
 				<li class="das-search-results__list-item">
 					<h2 class="govuk-heading-m das-search-results__heading">
-						<a class="das-search-results__link" id="provider-10065593" href="/courses/274/providers/10065593?location=Rugby,%20Warwickshire">
+						<a class="das-search-results__link" id="provider-10065593" href="cohort-details">
 							Adult care worker (level 2) 
 						</a>
 					</h2>
@@ -184,7 +184,7 @@ GOV.UK Prototype Kit
 				</li>
 				<li class="das-search-results__list-item">
 					<h2 class="govuk-heading-m das-search-results__heading">
-						<a class="das-search-results__link" id="provider-10065593" href="/courses/274/providers/10065593?location=Rugby,%20Warwickshire">
+						<a class="das-search-results__link" id="provider-10065593" href="cohort-details">
 							Adult care worker (level 2) 
 						</a>
 					</h2>
