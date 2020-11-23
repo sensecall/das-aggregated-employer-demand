@@ -136,7 +136,27 @@ html: 'This service is being used for research only.'
 				},
 				value:
 				{
-					text: "Not required"
+					text: "Required" if data['request']['recruitment-required'] == 'yes' else 'Not required'
+				},
+				actions:
+				{
+					items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "name"
+					}
+					]
+				}
+			},
+			{
+				key:
+				{
+					text: "Organisation name"
+				},
+				value:
+				{
+					text: data['request']['organisation-name']
 				},
 				actions:
 				{
@@ -156,7 +176,7 @@ html: 'This service is being used for research only.'
 				},
 				value:
 				{
-					html: "<p>" + data['request']['organisation-name'] + "<br>" + data['request']['contact-full-name'] + "<br>" + data['request']['email'] + "</p>"
+					html: "<p>" + data['request']['contact-full-name'] + "<br>" + data['request']['email'] + "</p>"
 				},
 				actions:
 				{

@@ -24,6 +24,10 @@ router.post('/start-date', (req, res, next) => {
 })
 
 router.post('/recruitment-required', (req, res, next) => {
+	res.redirect('organisation-name')
+})
+
+router.post('/organisation-name', (req, res, next) => {
 	res.redirect('contact-details')
 })
 

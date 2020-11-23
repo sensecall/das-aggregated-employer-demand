@@ -28,17 +28,17 @@ html: 'This service is being used for research only.'
 			{% call govukFieldset({
 				legend:
 				{
-					text: "Contact details",
+					text: "Who can we contact about this?",
 					classes: "govuk-fieldset__legend--xl",
 					isPageHeading: true
 				}
 			}) %}
 
 			<p class="govuk-!-margin-bottom-6">
-				We'll use these details to share details of any providers interested in delivering your apprenticeship training.
+				We'll share these details with training providers who are interested in delivering this apprenticeship. 
 			</p>
 
-			{{ govukInput({
+			<!-- {{ govukInput({
 				label:
 				{
 					text: "Organisation name"
@@ -47,16 +47,16 @@ html: 'This service is being used for research only.'
 				name: "request[organisation-name]",
 				autocomplete: "name",
 				spellcheck: false
-			}) }}
+			}) }} -->
 
 			{{ govukInput({
 				label:
 				{
-					text: "Contact full name"
+					text: "Full name"
 				},
 				hint:
 				{
-					text: "The full name of the person who should be contacted about this apprenticeship"
+					text: ""
 				},
 				id: "contact-full-name",
 				name: "request[contact-full-name]",
@@ -71,7 +71,7 @@ html: 'This service is being used for research only.'
 				},
 				hint:
 				{
-					text: "We'll use this to send a notification when a training provider tells us that they can deliver your training"
+					text: ""
 				},
 				id: "email",
 				name: "request[email]"

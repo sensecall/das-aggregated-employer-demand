@@ -28,16 +28,12 @@ html: 'This service is being used for research only.'
 			{{ govukInput({
 				label:
 				{
-					text: "What is the name of your organisation?",
+					text: "What's the name of your organisation?",
 					classes: "govuk-label--xl",
 					isPageHeading: true
 				},
-				hint:
-				{
-					text: "Organisation name"
-				},
-				id: "event-name",
-				name: "event-name"
+				id: "organisation-name",
+				name: "request[organisation-name]"
 			}) }}
 
 			<p>

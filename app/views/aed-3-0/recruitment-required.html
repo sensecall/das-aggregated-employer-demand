@@ -24,14 +24,21 @@ html: 'This service is being used for research only.'
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		<form method="post">
+			{% set employeesString %}
+			{% if data['request']['apprentices'] > 1 %}
+			existing employees
+			{% else %}
+			an existing employee
+			{% endif %}
+			{% endset %}
 			{{ govukRadios({
-				idPrefix: "changed-name",
-				name: "changed-name",
+				idPrefix: "recruitment-required",
+				name: "request[recruitment-required]",
 				fieldset: 
 				{
 					legend: 
 					{
-						text: "Do you need to recruit for this role?",
+						text: "Do you need to recruit for this apprenticeship?",
 						isPageHeading: true,
 						classes: "govuk-fieldset__legend--xl"
 					}
@@ -47,7 +54,7 @@ html: 'This service is being used for research only.'
 				},
 				{
 					value: "no",
-					text: "No"
+					text: "No – this training is for " + employeesString
 				}
 				]
 			}) }}

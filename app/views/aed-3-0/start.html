@@ -13,11 +13,11 @@ GOV.UK Prototype Kit
 html: 'This service is being used for research only.'
 }) }}
 
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
 {% endblock %}
 
 {% block content %}
@@ -29,7 +29,7 @@ html: 'This service is being used for research only.'
 		</h1>
 
 		<p class="govuk-body-l">
-			This service is for employers who are looking to find apprenticeship training provision for a chosen standard.
+			This service is for employers who are looking to find apprenticeship training provision for a chosen training course.
 		</p>
 
 		<p>
@@ -40,10 +40,16 @@ html: 'This service is being used for research only.'
 			Before you start
 		</h2>
 
-		<ul class="govuk-list govuk-list--bullet">
+		<p>
+			You should know the apprenticeship training course your apprentice will be training.
+		</p>
+		<p>
+			If you have not chosen the aprenticeship training course yet, you should <a href="https://findapprenticeshiptraining.apprenticeships.education.gov.uk/">Find apprenticeship training for your apprentice</a> before continuing.
+		</p>
+		<!-- <ul class="govuk-list govuk-list--bullet">
 			<li>Thing 1</li>
 			<li>Thing 2</li>
-		</ul>
+		</ul> -->
 
 		<p>
 			{{govukButton({
