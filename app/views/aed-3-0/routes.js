@@ -7,32 +7,41 @@ router.get('/', (req, res, next) => {
 	res.redirect(`/${req.version}/start`)
 })
 
+function cyaRedirect(page, req, res){
+	if(req.session.data['cya'] == 'true'){
+		req.session.data['cya'] = 'false'
+		res.redirect('check-your-answers')
+	} else {
+		res.redirect(page)
+	}
+}
+
 router.post('/standard-details', (req, res, next) => {
-	res.redirect('training-location')
+	cyaRedirect('training-location', req, res)
 })
 
 router.post('/training-location', (req, res, next) => {
-	res.redirect('how-many-apprentices')
+	cyaRedirect('how-many-apprentices', req, res)
 })
 
 router.post('/how-many-apprentices', (req, res, next) => {
-	res.redirect('start-date')
+	cyaRedirect('start-date', req, res)
 })
 
 router.post('/start-date', (req, res, next) => {
-	res.redirect('recruitment-required')
+	cyaRedirect('recruitment-required', req, res)
 })
 
 router.post('/recruitment-required', (req, res, next) => {
-	res.redirect('organisation-name')
+	cyaRedirect('organisation-name', req, res)
 })
 
 router.post('/organisation-name', (req, res, next) => {
-	res.redirect('contact-details')
+	cyaRedirect('contact-details', req, res)
 })
 
 router.post('/contact-details', (req, res, next) => {
-	res.redirect('check-your-answers')
+	cyaRedirect('check-your-answers', req, res)
 })
 
 router.post('/check-your-answers', (req, res, next) => {
