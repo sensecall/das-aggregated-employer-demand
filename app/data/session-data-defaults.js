@@ -18,6 +18,8 @@ Example usage:
 */
 
 const standards = require('./standards.json')
+const levels = require('./levels.json')
+const routes = require('./routes.json')
 
 module.exports = {
 
@@ -33,5 +35,7 @@ module.exports = {
    'contact-full-name': 'Jay Smith',
    'email': 'jay.smith@biz-co-ltd.uk.com'
  },
- 'standards': standards
+ 'standards': standards,
+ "levels": levels,
+ "routes": routes
 }
