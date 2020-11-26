@@ -7,38 +7,38 @@ Apprenticeship training courses
 {% endblock %}
 
 <!-- Display count -->
-{% set _displayCount = myData.displaycount %}
+{% set _displayCount = data['displaycount'] %}
 
 <!-- Selected route -->
 {% set _selectedRoute = {} %}
-{% for _route in myData.routes.list %}
-{% if myData.route == _route.code %}
+{% for _route in data['routes'].list %}
+{% if data['route'] == _route.code %}
 {% set _selectedRoute = _route %}
 {% endif %}
 {% endfor %}
 
-{% set _filterOrSearchApplied = myData.levelfilterapplied or myData.routefilterapplied or myData.searchapplied %}
+{% set _filterOrSearchApplied = data['levelfilterapplied'] or data['routefilterapplied'] or data['searchapplied'] %}
 
 <!-- Query strings (for use in hrefs) -->
 {% set _searchQuery = "" %}
 {% set _routefilterQuery = "" %}
 {% set _levelfilterQuery = "" %}
 {% set _sortQuery = "" %}
-{% if myData.searchapplied == true %}
-{% set _searchQuery = "&q=" + myData.searchTerm %}
+{% if data['searchapplied'] == true %}
+{% set _searchQuery = "&q=" + data['searchTerm'] %}
 {% endif %}
-{% if myData.routefilterapplied == true %}
-{% for _item in myData.routefilters %}
+{% if data['routefilterapplied'] == true %}
+{% for _item in data['routefilters'] %}
 {% set _routefilterQuery = _routefilterQuery + "&routefilters=" + _item %}
 {% endfor %}
 {% endif %}
-{% if myData.levelfilterapplied == true %}
-{% for _item in myData.levelfilters %}
+{% if data['levelfilterapplied'] == true %}
+{% for _item in data['levelfilters'] %}
 {% set _levelfilterQuery = _levelfilterQuery + "&levelfilters=" + _item %}
 {% endfor %}
 {% endif %}
-{% if myData.sortapplied == true %}
-{% set _sortQuery = "&sort=" + myData.sortby %}
+{% if data['sortapplied'] == true %}
+{% set _sortQuery = "&sort=" + data['sortby'] %}
 {% endif %}
 
 {% set _fullURL = "training?" + _searchQuery + _routefilterQuery + _levelfilterQuery + _sortQuery %}
@@ -75,7 +75,7 @@ Apprenticeship training courses
     <div class="govuk-grid-column-one-third">
 
         <!-- FILTERS  -->
-        {% if myData.cmpcfk != "false" or myData.cmpcfs != "false" or myData.cmpcfl != "false" %}
+        {% if data['cmpcfk'] != "false" or data['cmpcfs'] != "false" or data['cmpcfl'] != "false" %}
         <div class="fat-filter">
 
             <div class="fat-filter__header">
@@ -100,7 +100,7 @@ Apprenticeship training courses
                     </div>
 
                     <!-- For each filter type -->
-                    {% for _filter in myData.searchfilters %}
+                    {% for _filter in data['searchfilters'] %}
                     {% set _url = "training?" + _sortQuery + _levelfilterQuery + _routefilterQuery %}
                     <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{_filter.typeText}}</h3>
                     <ul class="fat-filter-tags">
@@ -126,16 +126,16 @@ Apprenticeship training courses
 
                         <button type="submit" class="govuk-button fat-filter__submit" id="filters-submit">Apply filters</button>
 
-                        {% if myData.cmpcfk != "false" %}
+                        {% if data['cmpcfk'] != "false" %}
                         <div class="govuk-form-group" data-list-search-filter >
                             <label for="search-training" class="govuk-label" >
                                 <span class="govuk-!-font-weight-bold govuk-!-font-size-24">Keywords</span>
                             </label>
-                            <input type="search" value="{% if myData.searchapplied == true %}{{myData.searchTerm}}{% endif %}" id="search-training" name="q" title="Search" class="govuk-input search-input" >
+                            <input type="search" value="{% if data['searchapplied'] == true %}{{data['searchTerm']}}{% endif %}" id="search-training" name="q" title="Search" class="govuk-input search-input" >
                         </div>
                         {% endif %}
 
-                        {% if myData.cmpcfl != "false" %}
+                        {% if data['cmpcfl'] != "false" %}
                         {% set _levels = data['levels'] %}
                         <div class="govuk-form-group">
                             <fieldset class="govuk-fieldset">
@@ -145,8 +145,8 @@ Apprenticeship training courses
                                 <div class="govuk-checkboxes govuk-checkboxes--small">
                                     {% for _level in _levels %}
                                     {% set _checked = "" %}
-                                    {% for _item in myData.levelfilters %}
-                                    {% if _item == _level.value and myData.levelfilterapplied == true %}
+                                    {% for _item in data['levelfilters'] %}
+                                    {% if _item == _level.value and data['levelfilterapplied'] == true %}
                                     {% set _checked = "checked" %}
                                     {% endif %}
                                     {% endfor %}
@@ -163,7 +163,7 @@ Apprenticeship training courses
                         </div>
                         {% endif %}
 
-                        {% if myData.cmpcfs != "false" %}
+                        {% if data['cmpcfs'] != "false" %}
                         {% set _routes = data['routes'].list %}
                         <div class="govuk-form-group">
                             <fieldset class="govuk-fieldset">
@@ -173,8 +173,8 @@ Apprenticeship training courses
                                 <div class="govuk-checkboxes govuk-checkboxes--small">
                                     {% for _route in _routes %}
                                     {% set _checked = "" %}
-                                    {% for _item in myData.routefilters %}
-                                    {% if _item == _route.code and myData.routefilterapplied == true %}
+                                    {% for _item in data['routefilters'] %}
+                                    {% if _item == _route.code and data['routefilterapplied'] == true %}
                                     {% set _checked = "checked" %}
                                     {% endif %}
                                     {% endfor %}
@@ -191,7 +191,7 @@ Apprenticeship training courses
                         {% endif %}
 
 
-                        <input type="hidden" value="{{myData.level}}" name="level" >
+                        <input type="hidden" value="{{data['level']}}" name="level" >
 
                         <button type="submit" class="govuk-button fat-filter__submit" id="filters-submit-2">Apply filters</button>
 
@@ -207,12 +207,12 @@ Apprenticeship training courses
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-        <h2 class="govuk-heading-m">{{myData.displaycount}} result{% if myData.displaycount != 1 %}s{% endif %}</h2>
+        <h2 class="govuk-heading-m">{{data['displaycount']}} result{% if data['displaycount'] != 1 %}s{% endif %}</h2>
 
         <!-- Sort -->
-        {% if myData.searchapplied == true and _displayCount > 1 %}
+        {% if data['searchapplied'] == true and _displayCount > 1 %}
         <p class="govuk-body govuk-!-margin-bottom-6">Sort by:
-            {% if myData.sortby == "name" %}
+            {% if data['sortby'] == "name" %}
             <a class="govuk-link govuk-link--no-visited-state" href="training?{{_levelfilterQuery}}{{_routefilterQuery}}{{_searchQuery}}&sort=relevance">Relevance</a>, 
             <span class="govuk-!-font-weight-bold">Name</span>
             {% else %}

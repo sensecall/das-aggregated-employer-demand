@@ -37,5 +37,7 @@ module.exports = {
  },
  'standards': standards,
  "levels": levels,
- "routes": routes
+ "routes": routes,
+ "routefilters": '',
+ "levelfilters": ''
 }

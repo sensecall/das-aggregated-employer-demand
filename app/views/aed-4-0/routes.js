@@ -3,6 +3,11 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
+// FAT routes
+router.use(/\/fat/, (req, res, next) => {	
+	require(`./fat/routes`)(req, res, next);
+})
+
 router.get('/', (req, res, next) => {
 	res.redirect(`/${req.version}/start`)
 })
