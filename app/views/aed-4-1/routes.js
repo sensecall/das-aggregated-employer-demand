@@ -3,6 +3,11 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
+// FAT routes
+router.use(/\/fat/, (req, res, next) => {	
+	require(`./fat/routes`)(req, res, next);
+})
+
 router.get('/', (req, res, next) => {
 	res.redirect(`/${req.version}/start`)
 })
@@ -15,14 +20,6 @@ function cyaRedirect(page, req, res){
 		res.redirect(page)
 	}
 }
-
-router.post('/contacted-provider', (req, res, next) => {
-	if(req.session.data['contacted-provider'] == 'yes'){
-		res.redirect('standard-details')
-	} else {
-		res.redirect('contacted-provider-error')
-	}
-})
 
 router.post('/standard-details', (req, res, next) => {
 	cyaRedirect('training-location', req, res)
