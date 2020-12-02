@@ -17,10 +17,10 @@ function cyaRedirect(page, req, res){
 }
 
 router.post('/contacted-provider', (req, res, next) => {
-	if(req.session.data['contacted-provider'] == 'yes'){
-		res.redirect('standard-details')
-	} else {
+	if(req.session.data['contacted-provider'] == 'no'){
 		res.redirect('contacted-provider-error')
+	} else {
+		res.redirect('standard-details')
 	}
 })
 
